@@ -99,8 +99,3 @@ Applications include telecommunications and logistics.
 - **Divide and Conquer**: Recursive problem-solving (e.g., quicksort).
 - **Backtracking**: Tries all solutions by undoing incorrect choices (e.g., N-Queens problem).
 
----
-
-### Usage
-
-This repository is intended as a reference for students and professionals studying algorithm design and problem-solving techniques. Contributions and suggestions are welcome!
