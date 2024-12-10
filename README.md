@@ -109,36 +109,36 @@ When tackling new challenges, innovative approaches may be necessary, but tried-
 ## **Project Overview**
 This project is focused on developing a **Smart City Proposal for Hubli** that incorporates **sustainable development practices**. It uses **data structures and algorithms** to enhance the functionality of urban systems, while aligning with the **United Nations Sustainable Development Goals (SDGs)**. The goal is to design a city layout that supports **smart residential communities**, efficient **waste management systems**, **e-waste recycling**, and **green urban design**.
 
+# Smart City Project
+
 ## SDG Mapping
+### Mapping Business Cases to SDG Targets and Indicators
 
-| **Business Case**              | **SDG Target**                                | **Indicator**                                                                                      |
-|-------------------------------|----------------------------------------------|----------------------------------------------------------------------------------------------------|
-| Smart Residential Communities  | SDG 11: Sustainable Cities and Communities   | Target 11.1: Ensure access for all to adequate, safe, and affordable housing.                        |
-| Waste Management Systems       | SDG 12: Responsible Consumption and Production| Target 12.4: Achieve environmentally sound management of chemicals and wastes.                       |
-| E-Waste Recycling              | SDG 12: Responsible Consumption and Production| Target 12.5: Substantially reduce waste generation through prevention, reduction, recycling, and reuse. |
-| Green Urban Design             | SDG 13: Climate Action                       | Target 13.2: Integrate climate change measures into policies, strategies, and planning.             |
+| **Business Case**               | **SDG Target**                            | **Indicator**                                           |
+|----------------------------------|-------------------------------------------|---------------------------------------------------------|
+| Smart Residential Communities    | SDG 11: Sustainable Cities and Communities| Target 11.1: Ensure access for all to adequate, safe, and affordable housing. <br> Indicator 11.1.1: Proportion of urban population living in slums, informal settlements, or inadequate housing. |
+| Waste Management Systems         | SDG 12: Responsible Consumption and Production | Target 12.4: Achieve environmentally sound management of chemicals and wastes. <br> Indicator 12.4.2: Hazardous waste generated per capita and proportion treated. |
+| E-Waste Recycling                | SDG 12: Responsible Consumption and Production | Target 12.5: Substantially reduce waste generation through prevention, reduction, recycling, and reuse. <br> Indicator 12.5.1: National recycling rate, tons of material recycled. |
+| Green Urban Design               | SDG 13: Climate Action                     | Target 13.2: Integrate climate change measures into policies, strategies, and planning. <br> Indicator 13.2.1: Number of countries with climate change mitigation/adaptation strategies. |
 
-## Business Case Refinements
+## Refining Your Business Cases
+- **Smart Residential Communities**: Design smart homes with IoT-enabled devices for optimized energy consumption and eco-friendly living to improve affordability and sustainability.
+- **Waste Management Systems**: Introduce an AI-based waste sorting mechanism to reduce landfill contribution by 30%, and implement a waste-to-energy process.
+- **E-Waste Recycling**: Deploy blockchain-based decentralized recycling centers across the city to track and manage e-waste recycling processes effectively.
+- **Green Urban Design**: Plan parks, green roofs, and urban forests to reduce the city's carbon footprint by 20%, offering natural climate adaptation strategies.
 
-- **Smart Residential Communities**: IoT-enabled devices optimize energy consumption and eco-friendly living, enhancing affordability and sustainability.
-- **Waste Management Systems**: AI-based waste sorting reduces landfill contribution, complemented by a waste-to-energy system.
-- **E-Waste Recycling**: Blockchain-based decentralized recycling centers track and manage e-waste recycling.
-- **Green Urban Design**: Urban parks, green roofs, and forests reduce carbon footprints and adapt to climate changes.
+## Course Reflections
 
-## Course Reflection
+- **Challenge Faced**: Mapping SDGs to specific business cases was complex, especially aligning them with measurable indicators. It required thinking critically about the local environment and how solutions could directly influence global SDG targets.
+  
+- **Insights Gained**: The use of algorithms like Dijkstra’s for transportation optimization and Kruskal’s for utility network design taught me how important computational tools are in real-world planning.
 
-### Challenge Faced:
-Mapping SDGs to business cases posed a challenge, especially when aligning them with measurable indicators. It required an understanding of both the local environment and global sustainability goals.
-
-### Insights Gained:
-Learning algorithms like Dijkstra’s for traffic optimization and Kruskal’s for utility network design reinforced the importance of computational tools in real-world urban planning.
-
-### Value of Algorithms:
-Algorithms like Dijkstra’s and Kruskal’s helped optimize transportation systems and utility networks, directly enhancing urban efficiency and reducing operational costs.
+- **Value of Algorithms**: Implementing algorithms in our smart city project helped streamline planning by optimizing traffic flows and utility management, directly improving urban efficiency and reducing costs.
 
 ## Code Implementations
 
-### Kruskal’s Algorithm (C++)
+### Kruskal’s Algorithm (C++ implementation)
+
 ```cpp
 #include <iostream>
 #include <vector>
@@ -153,7 +153,7 @@ public:
         rank.resize(n, 0);
         for (int i = 0; i < n; ++i) parent[i] = i;
     }
-
+    
     int find(int x) {
         if (parent[x] != x) parent[x] = find(parent[x]);
         return parent[x];
@@ -179,6 +179,7 @@ struct Edge {
 void kruskal(int n, vector<Edge>& edges) {
     DisjointSet ds(n);
     sort(edges.begin(), edges.end());
+
     vector<Edge> mst;
     for (auto& edge : edges) {
         if (ds.find(edge.u) != ds.find(edge.v)) {
@@ -186,6 +187,7 @@ void kruskal(int n, vector<Edge>& edges) {
             mst.push_back(edge);
         }
     }
+
     for (const auto& edge : mst) {
         cout << edge.u << " - " << edge.v << " : " << edge.weight << endl;
     }
