@@ -137,117 +137,31 @@ This project is focused on developing a **Smart City Proposal for Hubli** that i
 
 - **Value of Algorithms**: Implementing algorithms in our smart city project helped streamline planning by optimizing traffic flows and utility management, directly improving urban efficiency and reducing costs.
 
-### Code Implementations
+1. Smart Residential Communities
+Business Case: Creating efficient residential areas with optimized resource allocation and access to utilities.
+Algorithm: Kruskal’s Algorithm
+Why Chosen: Kruskal’s algorithm can help design an optimal utility grid (water, electricity, gas) by connecting residential buildings with the least cost. It ensures that residential zones are connected efficiently and that resources are distributed with minimal infrastructure costs.
+Code Example:
+View Kruskal Code
 
-For key features of the smart city, we used various algorithms to optimize and design different aspects of the city:
-- Kruskal’s Algorithm
-- #include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
+3. Efficient Waste Management Systems
+Business Case: Ensuring waste collection routes are optimized and minimizing the cost of waste disposal.
+Algorithm: Dijkstra’s Algorithm
+Why Chosen: Dijkstra’s algorithm can be applied to optimize waste collection routes. It helps in finding the shortest paths for waste trucks, ensuring they cover all neighborhoods efficiently while minimizing travel time and fuel costs. This is key to reducing the carbon footprint and making waste management more sustainable.
+Code Example:
+View Dijkstra Code
 
-class DisjointSet {
-public:
-    vector<int> parent, rank;
-    DisjointSet(int n) {
-        parent.resize(n);
-        rank.resize(n, 0);
-        for (int i = 0; i < n; ++i) parent[i] = i;
-    }
-    
-    int find(int x) {
-        if (parent[x] != x) parent[x] = find(parent[x]);
-        return parent[x];
-    }
+4. E-Waste Recycling
+Business Case: Managing the collection and processing of electronic waste efficiently.
+Algorithm: Sorting Algorithm
+Why Chosen: A sorting algorithm can be used to categorize and organize e-waste based on type (e.g., mobile phones, computers, batteries), making it easier to recycle or dispose of the components. This ensures that recycling centers can efficiently sort and process the waste to maximize reuse.
+Code Example:
+View Sorting Code
 
-    void unionSets(int x, int y) {
-        int rootX = find(x), rootY = find(y);
-        if (rootX != rootY) {
-            if (rank[rootX] > rank[rootY]) parent[rootY] = rootX;
-            else if (rank[rootX] < rank[rootY]) parent[rootX] = rootY;
-            else { parent[rootY] = rootX; rank[rootX]++; }
-        }
-    }
-};
+5. Green Urban Design
+Business Case: Planning and optimizing green spaces, energy-efficient buildings, and sustainable urban infrastructure.
+Algorithm: Kruskal’s Algorithm (for optimal design of green spaces)
+Why Chosen: Kruskal's algorithm can be applied to connect green spaces, parks, and other ecological zones in a way that minimizes land use and promotes connectivity. This helps in urban planning by ensuring green areas are efficiently distributed throughout the city, enhancing sustainability.
+Code Example:
+View Kruskal Code
 
-struct Edge {
-    int u, v, weight;
-    bool operator<(const Edge& other) const {
-        return weight < other.weight;
-    }
-};
-
-void kruskal(int n, vector<Edge>& edges) {
-    DisjointSet ds(n);
-    sort(edges.begin(), edges.end());
-
-    vector<Edge> mst;
-    for (auto& edge : edges) {
-        if (ds.find(edge.u) != ds.find(edge.v)) {
-            ds.unionSets(edge.u, edge.v);
-            mst.push_back(edge);
-        }
-    }
-
-    cout << "Optimal Utility Network: " << endl;
-    for (const auto& edge : mst) {
-        cout << "Zone " << edge.u << " connected to Zone " << edge.v << " with cost " << edge.weight << endl;
-    }
-}
-Dijkstra’s Algorithm
-int main() {
-    vector<Edge> edges = {{0, 1, 10}, {0, 2, 6}, {0, 3, 5}, {1, 3, 15}, {2, 3, 4}};
-    kruskal(4, edges);
-    return 0;
-}
-
-#include <iostream>
-#include <vector>
-#include <queue>
-#include <climits>
-using namespace std;
-
-void dijkstra(int n, vector<vector<pair<int, int>>>& graph, int start) {
-    vector<int> dist(n, INT_MAX);
-    dist[start] = 0;
-    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
-    pq.push({0, start});
-    
-    while (!pq.empty()) {
-        int u = pq.top().second;
-        pq.pop();
-
-        for (auto& neighbor : graph[u]) {
-            int v = neighbor.first, weight = neighbor.second;
-            if (dist[u] + weight < dist[v]) {
-                dist[v] = dist[u] + weight;
-                pq.push({dist[v], v});
-            }
-        }
-    }
-
-    cout << "Shortest paths from Zone " << start << " to other zones: " << endl;
-    for (int i = 0; i < n; ++i) {
-        cout << "Distance from Zone " << start << " to Zone " << i << " is " << dist[i] << endl;
-    }
-}
-
-int main() {
-    int n = 5;
-    vector<vector<pair<int, int>>> graph(n);
-    graph[0].push_back({1, 10});
-    graph[0].push_back({4, 5});
-    graph[1].push_back({0, 10});
-    graph[1].push_back({2, 1});
-    graph[2].push_back({1, 1});
-    graph[2].push_back({4, 2});
-    graph[3].push_back({1, 4});
-    graph[4].push_back({0, 5});
-    graph[4].push_back({2, 2});
-
-    dijkstra(n, graph, 0);
-    return 0;
-}
-
-
-These algorithms contribute to the optimization of transportation, utilities, and waste management in the smart city design.
