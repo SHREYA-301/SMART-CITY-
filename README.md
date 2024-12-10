@@ -137,7 +137,7 @@ This project is focused on developing a **Smart City Proposal for Hubli** that i
 
 - **Value of Algorithms**: Implementing algorithms in our smart city project helped streamline planning by optimizing traffic flows and utility management, directly improving urban efficiency and reducing costs.
 
-Code Implementation
+## Code Implementation
 
 1. Smart Residential Communities
 Business Case: Creating efficient residential areas with optimized resource allocation and access to utilities.
