@@ -135,66 +135,12 @@ This project is focused on developing a **Smart City Proposal for Hubli** that i
 
 - **Value of Algorithms**: Implementing algorithms in our smart city project helped streamline planning by optimizing traffic flows and utility management, directly improving urban efficiency and reducing costs.
 
-## Code Implementations
+### Code Implementations
 
-### Kruskal’s Algorithm (C++ implementation)
+For key features of the smart city, we used various algorithms to optimize and design different aspects of the city:
 
-```cpp
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
+- **Sorting Algorithm**: [View Code](Code/Sorting.cpp) – Used to sort city data, like population and resources, for efficient management.
+- **Kruskal’s Algorithm**: [View Code](Code/Kruskal.cpp) – Helps design the optimal utility networks connecting different city zones.
+- **Dijkstra’s Algorithm**: [View Code](Code/Dijkstra.cpp) – Optimizes transportation routes and traffic management across the city.
 
-class DisjointSet {
-public:
-    vector<int> parent, rank;
-    DisjointSet(int n) {
-        parent.resize(n);
-        rank.resize(n, 0);
-        for (int i = 0; i < n; ++i) parent[i] = i;
-    }
-    
-    int find(int x) {
-        if (parent[x] != x) parent[x] = find(parent[x]);
-        return parent[x];
-    }
-
-    void unionSets(int x, int y) {
-        int rootX = find(x), rootY = find(y);
-        if (rootX != rootY) {
-            if (rank[rootX] > rank[rootY]) parent[rootY] = rootX;
-            else if (rank[rootX] < rank[rootY]) parent[rootX] = rootY;
-            else { parent[rootY] = rootX; rank[rootX]++; }
-        }
-    }
-};
-
-struct Edge {
-    int u, v, weight;
-    bool operator<(const Edge& other) const {
-        return weight < other.weight;
-    }
-};
-
-void kruskal(int n, vector<Edge>& edges) {
-    DisjointSet ds(n);
-    sort(edges.begin(), edges.end());
-
-    vector<Edge> mst;
-    for (auto& edge : edges) {
-        if (ds.find(edge.u) != ds.find(edge.v)) {
-            ds.unionSets(edge.u, edge.v);
-            mst.push_back(edge);
-        }
-    }
-
-    for (const auto& edge : mst) {
-        cout << edge.u << " - " << edge.v << " : " << edge.weight << endl;
-    }
-}
-
-int main() {
-    vector<Edge> edges = {{0, 1, 10}, {0, 2, 6}, {0, 3, 5}, {1, 3, 15}, {2, 3, 4}};
-    kruskal(4, edges);
-    return 0;
-}
+These algorithms contribute to the optimization of transportation, utilities, and waste management in the smart city design.
