@@ -109,38 +109,49 @@ When tackling new challenges, innovative approaches may be necessary, but tried-
 ## **Project Overview**
 This project is focused on developing a **Smart City Proposal for Hubli** that incorporates **sustainable development practices**. It uses **data structures and algorithms** to enhance the functionality of urban systems, while aligning with the **United Nations Sustainable Development Goals (SDGs)**. The goal is to design a city layout that supports **smart residential communities**, efficient **waste management systems**, **e-waste recycling**, and **green urban design**.
 
-# Smart City Project
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <climits>
+using namespace std;
 
-## Overview
-This project proposes solutions for developing a smart city aligned with Sustainable Development Goals (SDGs). The focus areas include:
-- Smart Residential Communities
-- Waste Management Systems
-- E-Waste Recycling
-- Green Urban Design
+void dijkstra(int n, vector<vector<pair<int, int>>>& graph, int start) {
+    vector<int> dist(n, INT_MAX);
+    dist[start] = 0;
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+    pq.push({0, start});
 
-## Reflections
-- Week 1: Understood the basics of smart city design and its alignment with SDGs.
-- Week 2: Explored data structures like trees and graphs for urban planning.
-- Week 3: Mapped business cases to SDG targets and implemented algorithms for optimization.
+    while (!pq.empty()) {
+        int u = pq.top().second;
+        pq.pop();
 
-## SDG Mapping
-- **Smart Residential Communities**: Aligns with SDG 11.1 - Ensure access to safe and affordable housing.
-- **Waste Management Systems**: Aligns with SDG 12.5 - Substantially reduce waste generation through prevention, reduction, recycling, and reuse.
-- **E-Waste Recycling**: Aligns with SDG 12.4 - Environmentally sound management of chemicals and all wastes.
-- **Green Urban Design**: Aligns with SDG 13.1 - Strengthen resilience to climate-related hazards.
+        for (auto& neighbor : graph[u]) {
+            int v = neighbor.first, weight = neighbor.second;
+            if (dist[u] + weight < dist[v]) {
+                dist[v] = dist[u] + weight;
+                pq.push({dist[v], v});
+            }
+        }
+    }
 
-## Code Implementations
-- **Dijkstra's Algorithm**: Used for optimizing transportation routes.
-  [View Code](Code/Dijkstra.cpp)
-- **Kruskal’s Algorithm**: Applied for designing cost-efficient utility networks.
-  [View Code](Code/Kruskal.cpp)
+    for (int i = 0; i < n; ++i) {
+        cout << "Distance from " << start << " to " << i << " is " << dist[i] << endl;
+    }
+}
 
+int main() {
+    int n = 5;
+    vector<vector<pair<int, int>>> graph(n);
+    graph[0].push_back({1, 10});
+    graph[0].push_back({4, 5});
+    graph[1].push_back({0, 10});
+    graph[1].push_back({2, 1});
+    graph[2].push_back({1, 1});
+    graph[2].push_back({4, 2});
+    graph[3].push_back({1, 4});
+    graph[4].push_back({0, 5});
+    graph[4].push_back({2, 2});
 
-
-## Contributors
-- Your Name
-
-
-
-
-
+    dijkstra(n, graph, 0);
+    return 0;
+}
