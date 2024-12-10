@@ -104,4 +104,74 @@ When tackling new challenges, innovative approaches may be necessary, but tried-
 
 ---
 
+# Smart City Proposal and SDG Mapping Project
+
+## **Project Overview**
+This project is focused on developing a **Smart City Proposal for Hubli** that incorporates **sustainable development practices**. It uses **data structures and algorithms** to enhance the functionality of urban systems, while aligning with the **United Nations Sustainable Development Goals (SDGs)**. The goal is to design a city layout that supports **smart residential communities**, efficient **waste management systems**, **e-waste recycling**, and **green urban design**.
+
+The project includes multiple aspects:
+- **SDG Target Mapping**: Aligning business cases with SDGs.
+- **Algorithmic Implementations**: Implementing essential algorithms like Dijkstra's, Kruskal's, and Sorting.
+- **Business Case Refinement**: Enhancing the business cases in line with SDGs.
+- **Course Reflections**: Individual reflections based on the course.
+
+## **SDG Mapping**
+
+### **Business Cases Mapped to SDG Targets**
+We identified four key business cases and mapped them to the relevant SDGs and targets. This ensures that our project is aligned with global sustainability goals.
+
+| **Business Case**                  | **SDG(s) Mapped to**    | **SDG Target**                                                                                  |
+|-------------------------------------|-------------------------|------------------------------------------------------------------------------------------------|
+| **Smart Residential Communities**   | SDG 11: Sustainable Cities | Target 11.1: Ensure access to adequate, safe, and affordable housing for all.                   |
+| **Waste Management Systems**        | SDG 12: Responsible Consumption & Production | Target 12.4: Achieve the environmentally sound management of chemicals and waste.              |
+| **E-Waste Recycling**                | SDG 12: Responsible Consumption & Production | Target 12.5: Reduce waste generation through prevention, reduction, recycling, and reuse.      |
+| **Green Urban Design**              | SDG 13: Climate Action   | Target 13.1: Strengthen resilience and adaptive capacity to climate-related hazards.            |
+
+### **How SDG Mapping Integrates with City Design**
+Each business case is integrated into the city layout design. For instance, **smart residential communities** will be designed with green spaces and efficient waste management systems. This holistic approach ensures the city’s infrastructure promotes sustainability and environmental responsibility.
+
+For more details, check the [SDG Mapping File](./SDG-Mapping.md).
+
+## **Algorithm Implementations**
+
+### **Algorithms Implemented**
+As part of this project, various data structures and algorithms were implemented to optimize key processes such as traffic management, e-waste recycling, and waste collection in the smart city. Below are some of the key algorithms used:
+
+#### **Dijkstra's Algorithm**
+Dijkstra’s algorithm is used to calculate the shortest path between two points in a city for the **public transportation system**.
+
+```python
+import heapq
+
+def dijkstra(graph, start):
+    distances = {node: float('infinity') for node in graph}
+    distances[start] = 0
+    priority_queue = [(0, start)]
+
+    while priority_queue:
+        current_distance, current_node = heapq.heappop(priority_queue)
+
+        if current_distance > distances[current_node]:
+            continue
+
+        for neighbor, weight in graph[current_node].items():
+            distance = current_distance + weight
+            if distance < distances[neighbor]:
+                distances[neighbor] = distance
+                heapq.heappush(priority_queue, (distance, neighbor))
+
+    return distances
+
+# Example graph (adjacency list representation)
+graph = {
+    'A': {'B': 4, 'C': 2},
+    'B': {'A': 4, 'C': 5, 'D': 10},
+    'C': {'A': 2, 'B': 5, 'D': 3},
+    'D': {'B': 10, 'C': 3}
+}
+
+# Find the shortest paths from node 'A'
+print(dijkstra(graph, 'A'))
+
+
 
