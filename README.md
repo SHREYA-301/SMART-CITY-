@@ -121,7 +121,7 @@ This project is focused on developing a **Smart City Proposal for Hubli** that i
 | E-Waste Recycling                | SDG 12: Responsible Consumption and Production | Target 12.5: Substantially reduce waste generation through prevention, reduction, recycling, and reuse. <br> Indicator 12.5.1: National recycling rate, tons of material recycled. |
 | Green Urban Design               | SDG 13: Climate Action                     | Target 13.2: Integrate climate change measures into policies, strategies, and planning. <br> Indicator 13.2.1: Number of countries with climate change mitigation/adaptation strategies. |
 
-## Refining Your Business Cases
+## Refining Business Cases based on SDG
 - **Smart Residential Communities**: Design smart homes with IoT-enabled devices for optimized energy consumption and eco-friendly living to improve affordability and sustainability.
 - **Waste Management Systems**: Introduce an AI-based waste sorting mechanism to reduce landfill contribution by 30%, and implement a waste-to-energy process.
 - **E-Waste Recycling**: Deploy blockchain-based decentralized recycling centers across the city to track and manage e-waste recycling processes effectively.
