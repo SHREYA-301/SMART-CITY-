@@ -109,49 +109,90 @@ When tackling new challenges, innovative approaches may be necessary, but tried-
 ## **Project Overview**
 This project is focused on developing a **Smart City Proposal for Hubli** that incorporates **sustainable development practices**. It uses **data structures and algorithms** to enhance the functionality of urban systems, while aligning with the **United Nations Sustainable Development Goals (SDGs)**. The goal is to design a city layout that supports **smart residential communities**, efficient **waste management systems**, **e-waste recycling**, and **green urban design**.
 
+## SDG Mapping
+
+| **Business Case**              | **SDG Target**                                | **Indicator**                                                                                      |
+|-------------------------------|----------------------------------------------|----------------------------------------------------------------------------------------------------|
+| Smart Residential Communities  | SDG 11: Sustainable Cities and Communities   | Target 11.1: Ensure access for all to adequate, safe, and affordable housing.                        |
+| Waste Management Systems       | SDG 12: Responsible Consumption and Production| Target 12.4: Achieve environmentally sound management of chemicals and wastes.                       |
+| E-Waste Recycling              | SDG 12: Responsible Consumption and Production| Target 12.5: Substantially reduce waste generation through prevention, reduction, recycling, and reuse. |
+| Green Urban Design             | SDG 13: Climate Action                       | Target 13.2: Integrate climate change measures into policies, strategies, and planning.             |
+
+## Business Case Refinements
+
+- **Smart Residential Communities**: IoT-enabled devices optimize energy consumption and eco-friendly living, enhancing affordability and sustainability.
+- **Waste Management Systems**: AI-based waste sorting reduces landfill contribution, complemented by a waste-to-energy system.
+- **E-Waste Recycling**: Blockchain-based decentralized recycling centers track and manage e-waste recycling.
+- **Green Urban Design**: Urban parks, green roofs, and forests reduce carbon footprints and adapt to climate changes.
+
+## Course Reflection
+
+### Challenge Faced:
+Mapping SDGs to business cases posed a challenge, especially when aligning them with measurable indicators. It required an understanding of both the local environment and global sustainability goals.
+
+### Insights Gained:
+Learning algorithms like Dijkstra’s for traffic optimization and Kruskal’s for utility network design reinforced the importance of computational tools in real-world urban planning.
+
+### Value of Algorithms:
+Algorithms like Dijkstra’s and Kruskal’s helped optimize transportation systems and utility networks, directly enhancing urban efficiency and reducing operational costs.
+
+## Code Implementations
+
+### Kruskal’s Algorithm (C++)
+```cpp
 #include <iostream>
 #include <vector>
-#include <queue>
-#include <climits>
+#include <algorithm>
 using namespace std;
 
-void dijkstra(int n, vector<vector<pair<int, int>>>& graph, int start) {
-    vector<int> dist(n, INT_MAX);
-    dist[start] = 0;
-    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
-    pq.push({0, start});
-
-    while (!pq.empty()) {
-        int u = pq.top().second;
-        pq.pop();
-
-        for (auto& neighbor : graph[u]) {
-            int v = neighbor.first, weight = neighbor.second;
-            if (dist[u] + weight < dist[v]) {
-                dist[v] = dist[u] + weight;
-                pq.push({dist[v], v});
-            }
-        }
+class DisjointSet {
+public:
+    vector<int> parent, rank;
+    DisjointSet(int n) {
+        parent.resize(n);
+        rank.resize(n, 0);
+        for (int i = 0; i < n; ++i) parent[i] = i;
     }
 
-    for (int i = 0; i < n; ++i) {
-        cout << "Distance from " << start << " to " << i << " is " << dist[i] << endl;
+    int find(int x) {
+        if (parent[x] != x) parent[x] = find(parent[x]);
+        return parent[x];
+    }
+
+    void unionSets(int x, int y) {
+        int rootX = find(x), rootY = find(y);
+        if (rootX != rootY) {
+            if (rank[rootX] > rank[rootY]) parent[rootY] = rootX;
+            else if (rank[rootX] < rank[rootY]) parent[rootX] = rootY;
+            else { parent[rootY] = rootX; rank[rootX]++; }
+        }
+    }
+};
+
+struct Edge {
+    int u, v, weight;
+    bool operator<(const Edge& other) const {
+        return weight < other.weight;
+    }
+};
+
+void kruskal(int n, vector<Edge>& edges) {
+    DisjointSet ds(n);
+    sort(edges.begin(), edges.end());
+    vector<Edge> mst;
+    for (auto& edge : edges) {
+        if (ds.find(edge.u) != ds.find(edge.v)) {
+            ds.unionSets(edge.u, edge.v);
+            mst.push_back(edge);
+        }
+    }
+    for (const auto& edge : mst) {
+        cout << edge.u << " - " << edge.v << " : " << edge.weight << endl;
     }
 }
 
 int main() {
-    int n = 5;
-    vector<vector<pair<int, int>>> graph(n);
-    graph[0].push_back({1, 10});
-    graph[0].push_back({4, 5});
-    graph[1].push_back({0, 10});
-    graph[1].push_back({2, 1});
-    graph[2].push_back({1, 1});
-    graph[2].push_back({4, 2});
-    graph[3].push_back({1, 4});
-    graph[4].push_back({0, 5});
-    graph[4].push_back({2, 2});
-
-    dijkstra(n, graph, 0);
+    vector<Edge> edges = {{0, 1, 10}, {0, 2, 6}, {0, 3, 5}, {1, 3, 15}, {2, 3, 4}};
+    kruskal(4, edges);
     return 0;
 }
