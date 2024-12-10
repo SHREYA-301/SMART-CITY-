@@ -149,6 +149,7 @@ Why Chosen: Kruskal’s algorithm can help design an optimal utility grid (water
 Code Example:
 View Kruskal Code
 
+
 3. Efficient Waste Management Systems
 Business Case: Ensuring waste collection routes are optimized and minimizing the cost of waste disposal.
 
@@ -159,6 +160,7 @@ Why Chosen: Dijkstra’s algorithm can be applied to optimize waste collection r
 Code Example:
 View Dijkstra Code
 
+
 5. E-Waste Recycling
 Business Case: Managing the collection and processing of electronic waste efficiently.
 
@@ -168,6 +170,7 @@ Why Chosen: A sorting algorithm can be used to categorize and organize e-waste b
 
 Code Example:
 View Sorting Code
+
 
 7. Green Urban Design
 Business Case: Planning and optimizing green spaces, energy-efficient buildings, and sustainable urban infrastructure.
