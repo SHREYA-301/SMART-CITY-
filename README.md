@@ -109,12 +109,6 @@ When tackling new challenges, innovative approaches may be necessary, but tried-
 ## **Project Overview**
 This project is focused on developing a **Smart City Proposal for Hubli** that incorporates **sustainable development practices**. It uses **data structures and algorithms** to enhance the functionality of urban systems, while aligning with the **United Nations Sustainable Development Goals (SDGs)**. The goal is to design a city layout that supports **smart residential communities**, efficient **waste management systems**, **e-waste recycling**, and **green urban design**.
 
-The project includes multiple aspects:
-- **SDG Target Mapping**: Aligning business cases with SDGs.
-- **Algorithmic Implementations**: Implementing essential algorithms like Dijkstra's, Kruskal's, and Sorting.
-- **Business Case Refinement**: Enhancing the business cases in line with SDGs.
-- **Course Reflections**: Individual reflections based on the course.
-
 ## **SDG Mapping**
 
 ### **Business Cases Mapped to SDG Targets**
