@@ -2,9 +2,9 @@ This repository covers key algorithmic concepts and design principles used to ap
 # 1. What are the kinds of problems we see in nature?
 Nature shows many examples of problem-solving:
 
--Iteration: Tides rise and fall in a regular, repeated pattern.
--Recursion: A cauliflower looks the same at every level, from stem to tip.
--Backtracking: Solving a maze by going back when you hit a dead end.
+Iteration: Tides rise and fall in a regular, repeated pattern.
+Recursion: A cauliflower looks the same at every level, from stem to tip.
+Backtracking: Solving a maze by going back when you hit a dead end.
 These ideas help us solve similar problems in algorithms.
 The types of problems encountered in nature can be categorized into algorithmic problems based on the way we approach their solutions:
 - Iteration: Repeating a task a specific number of times. Commonly used in tasks requiring repetitive calculations like summing numbers or processing data in loops.
