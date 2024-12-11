@@ -1,5 +1,3 @@
-# Algorithm Design and Optimization Concepts
-
 This repository covers key algorithmic concepts and design principles used to approach various problems efficiently and their application in real-world scenarios.
 # 1. What are the kinds of problems we see in nature?
 Nature shows many examples of problem-solving:
