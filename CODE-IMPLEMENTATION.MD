@@ -6,7 +6,7 @@ Algorithms That Can Be Used:
 - *AVL Trees*:  
   - Efficiently manage databases for resident records, such as household details and resource consumption.  
 
-- *HashMaps*:  
+- *Hashing*:  
   - Store and retrieve residential infrastructure information quickly (e.g., available amenities).  
 
 - *Sorting Algorithms*:  
@@ -36,13 +36,13 @@ Why Chosen: Dijkstra’s algorithm can be applied to optimize waste collection r
 3.E-Waste Recycling
 Business Case: Managing the collection and processing of electronic waste efficiently.
 Algorithms That Can Be Used:
-- *Union-Find (Disjoint Sets)*:  
+- *Union-Find*:  
   - Track recyclable materials within connected systems for sorting.  
 
 - *Sorting Algorithms*:  
   - *Heap Sort*: Categorize waste by material type for efficient processing.  
 
-- *HashMaps*:  
+- *Hashing*:  
   - Store data on recyclable materials and their drop-off points.
 
 Algorithm Chosen: Sorting Algorithm
