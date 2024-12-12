@@ -69,5 +69,6 @@ Why Chosen: Kruskal's algorithm can be applied to connect green spaces, parks, a
 - [DIJKSTRA CODE](./DIJKSTRA.md)
 - [KRUSKALS CODE](./KRUSKALS.md)
 - [MERGE CODE](./MERGE.md)
-
+- [BFS CODE](./BFS.md)
+- [DFS CODE](./DFS.md)
 
