@@ -67,3 +67,5 @@ Algorithm Chosen: Kruskal’s Algorithm (for optimal design of green spaces)
 Why Chosen: Kruskal's algorithm can be applied to connect green spaces, parks, and other ecological zones in a way that minimizes land use and promotes connectivity. This helps in urban planning by ensuring green areas are efficiently distributed throughout the city, enhancing sustainability.
 
 - [DIJKSTRA CODE](./DIJKSTRA.md)
+- [KRUSKALS CODE](./KRUSKALS.md)
+
