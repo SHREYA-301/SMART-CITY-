@@ -114,7 +114,7 @@ Solutions must be evaluated for both correctness and efficiency. An optimal algo
 ### Innovation vs. Stability:
 When tackling new challenges, innovative approaches may be necessary, but tried-and-tested methods provide stability for well-understood problems. Balancing innovation and stability is crucial in real-world applications.
 
-###The Benefits of Decomposing Problems
+### The Benefits of Decomposing Problems:
 Dividing problems into smaller components enhances manageability. For example, in resolving a graph-related challenge, foundational traversal techniques such as BFS or DFS were initially established, forming a basis for developing advanced solutions like shortest-path algorithms.
 
 
